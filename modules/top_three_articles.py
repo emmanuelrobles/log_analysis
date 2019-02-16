@@ -7,7 +7,15 @@ def get_top_three_articles():
 
     db_cursor = conn.get_connection()
 
-    db_cursor.execute("SELECT path, count(*) as count FROM log where status = '200 OK' group by (path) order by count desc")
+    path_folder = "/article/"
+
+    querry = "SELECT title, count(*) as count FROM articles " \
+             "INNER JOIN log ON articles.slug = substring(log.path,LENGTH ('{0}')+1) " \
+             "GROUP BY slug,title " \
+             "order by count desc " \
+             "LIMIT 3;".format(path_folder)
+
+    db_cursor.execute(querry)
 
     print db_cursor.fetchall()
 
