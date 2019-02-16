@@ -11,12 +11,10 @@ def get_top_three_articles():
 
     querry = "SELECT title, count(*) as count FROM articles " \
              "INNER JOIN log ON articles.slug = substring(log.path,LENGTH ('{0}')+1) " \
-             "GROUP BY slug,title " \
+             "GROUP BY title " \
              "order by count desc " \
              "LIMIT 3;".format(path_folder)
 
     db_cursor.execute(querry)
 
-    print db_cursor.fetchall()
-
-get_top_three_articles()
+    return db_cursor.fetchall()
