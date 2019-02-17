@@ -19,5 +19,3 @@ def get_top_authors():
     db_cursor.execute(querry)
 
     return db_cursor.fetchall()
-
-print get_top_authors()
