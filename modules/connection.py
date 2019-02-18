@@ -3,7 +3,7 @@ import psycopg2
 
 class Connection:
 
-    # initialize the conenction
+    # initialize the connection
     def __init__(self):
         self.db = psycopg2.connect("dbname=news")
 
