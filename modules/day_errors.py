@@ -17,7 +17,9 @@ def get_day_errors():
              "WHERE per>1;"
 
     db_cursor.execute(querry)
+    result = db_cursor.fetchall()
+    del db_cursor
 
-    return db_cursor.fetchall()
+    return result
 
 print get_day_errors()

@@ -17,5 +17,6 @@ def get_top_authors():
              "ORDER BY count DESC;".format(path_folder)
 
     db_cursor.execute(querry)
-
-    return db_cursor.fetchall()
+    result = db_cursor.fetchall()
+    del db_cursor
+    return result

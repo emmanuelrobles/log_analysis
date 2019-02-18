@@ -16,5 +16,6 @@ def get_top_three_articles():
              "LIMIT 3;".format(path_folder)
 
     db_cursor.execute(querry)
-
-    return db_cursor.fetchall()
+    result = db_cursor.fetchall()
+    del db_cursor
+    return result
