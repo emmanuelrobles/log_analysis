@@ -1,4 +1,6 @@
+#!/usr/bin/env python
 from modules import day_errors, top_authors, top_three_articles
+
 
 def main():
     # exc 1

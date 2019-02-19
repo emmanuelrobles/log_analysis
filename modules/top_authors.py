@@ -2,7 +2,6 @@ import connection
 
 
 def get_top_authors():
-
     # create a connection
     conn = connection.Connection()
     # get the cursor
@@ -11,11 +10,11 @@ def get_top_authors():
     path_folder = "/article/"
     # query to be run
     query = "SELECT name,count(*) " \
-             "FROM articles " \
-             "INNER JOIN log ON articles.slug = substring(log.path,length('/article/')+1) " \
-             "INNER JOIN authors on author = authors.id " \
-             "GROUP BY name " \
-             "ORDER BY count DESC;".format(path_folder)
+            "FROM articles " \
+            "INNER JOIN log ON articles.slug = substring(log.path,length('/article/')+1) " \
+            "INNER JOIN authors on author = authors.id " \
+            "GROUP BY name " \
+            "ORDER BY count DESC;".format(path_folder)
 
     # execute the query
     db_cursor.execute(query)
